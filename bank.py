@@ -46,12 +46,12 @@ class ATM:
         for bank_account in self.accounts:
             print(f"{i} - {bank_account.account_holder}")
             i += 1
-        menu()
+
 
     def add_account(self):
         name = input("Název účtu: ")
         self.accounts.append(BankAccount(name))
-        menu()
+
 
     def transfer(self):
         print("Dostupné účty:")
@@ -62,7 +62,7 @@ class ATM:
         amount = float(input("Částka: "))
 
         self.accounts[index_from].transfer(self.accounts[index_to], amount)
-        menu()
+
 
     def deposit(self):
         print("Dostupné účty:")
@@ -72,7 +72,7 @@ class ATM:
         amount = float(input("Částka: "))
 
         self.accounts[index_to].deposit(amount)
-        menu()
+
 
     def withdraw(self):
         print("Dostupné účty:")
@@ -82,7 +82,7 @@ class ATM:
         amount = float(input("Částka: "))
 
         self.accounts[index_from].withdraw(amount)
-        menu()
+
 
 
 atm = ATM(bank_accounts)
@@ -108,5 +108,5 @@ def menu():
         atm.deposit()
     else:
         print("Chybná akce, výběr znovu")
-
+    menu()
 menu()
